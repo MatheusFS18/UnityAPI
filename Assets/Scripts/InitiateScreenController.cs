@@ -20,7 +20,10 @@ public class InitiateScreenController : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("LoginScreen");
+            if (PlayerPrefs.GetString(Resource.APIkey) != "")
+                SceneManager.LoadScene(Resource.Screen.Principal);
+            else
+            SceneManager.LoadScene(Resource.Screen.Login);
         }
     }
 }
